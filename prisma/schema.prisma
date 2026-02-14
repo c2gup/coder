@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  // url is removed here for Prisma 7+
+  // No url here anymore!
 }
 
 model User {

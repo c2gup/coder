@@ -1,8 +1,8 @@
-name: coder
-version: "0.1"
+# Remove 'name: coder' and 'version', they are obsolete/incorrectly placed
 services:
   db:
     image: postgres:16
+    container_name: coder-db # Added for easier debugging
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -10,8 +10,7 @@ services:
     ports:
       - "5431:5432"
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
 
 volumes:
-  db_data:
-
+  postgres_data:
