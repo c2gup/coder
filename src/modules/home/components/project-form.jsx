@@ -4,13 +4,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import TextAreaAutosize from "react-textarea-autosize";
 import { ArrowUpIcon, Loader2Icon } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { toast } from "sonner";
+
 import { useState } from "react";
 import z from "zod";
+import { toast } from "sonner";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Form, FormField } from "@/components/ui/form";
+import { onInvoke } from "../action";
 
 const formSchema = z.object({
   content: z
@@ -90,10 +92,20 @@ const ProjectsForm = () => {
       console.log(values);
     } catch (error) {}
   };
+  const onInvokeAI = async () => {
+    try {
+      const res = await onInvoke();
+      console.log(res);
+      toast.success("Done");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="space-y-8">
       {/* Template Grid */}
+      <Button onClick={onInvokeAI}>Invoke AI Agent</Button>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
         {PROJECT_TEMPLATES.map((template, index) => (
           <button
@@ -131,14 +143,14 @@ const ProjectsForm = () => {
           onSubmit={form.handleSubmit(onSubmit)}
           className={cn(
             "relative border p-4 pt-1 rounded-xl bg-sidebar dark:bg-sidebar transition-all",
-            isFocused && "shadow-lg ring-2 ring-primary/20"
+            isFocused && "shadow-lg ring-2 ring-primary/20",
           )}
         >
-         <FormField
-         control={form.control}
-         name="content"
-         render={({field})=>(
-                <TextAreaAutosize
+          <FormField
+            control={form.control}
+            name="content"
+            render={({ field }) => (
+              <TextAreaAutosize
                 {...field}
                 // disabled={isPending}
                 placeholder="Describe what you want to create..."
@@ -148,7 +160,7 @@ const ProjectsForm = () => {
                 maxRows={8}
                 className={cn(
                   "pt-4 resize-none border-none w-full outline-none bg-transparent",
-                //   isPending && "opacity-50"
+                  //   isPending && "opacity-50"
                 )}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) {
@@ -157,23 +169,20 @@ const ProjectsForm = () => {
                   }
                 }}
               />
-         )}
-         />   
+            )}
+          />
 
-         <div className="flex gap-x-2 items-end justify-between pt-2">
+          <div className="flex gap-x-2 items-end justify-between pt-2">
             <div className="text-[10px] text-muted-foreground font-mono">
-                 <kbd className="ml-auto pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
+              <kbd className="ml-auto pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
                 <span>&#8984;</span>Enter
               </kbd>
               &nbsp; to submit
             </div>
-            <Button
-            className={cn("size-8 rounded-full")}
-            type="submit"
-            >
-                <ArrowUpIcon className="size-4"/>
+            <Button className={cn("size-8 rounded-full")} type="submit">
+              <ArrowUpIcon className="size-4" />
             </Button>
-         </div>
+          </div>
         </form>
       </Form>
     </div>
