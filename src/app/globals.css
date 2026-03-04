@@ -184,3 +184,49 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Enhanced Tree View Animations */
+@layer components {
+  .tree-hover-effect {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .tree-hover-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.1), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .tree-hover-effect:hover::before {
+    left: 100%;
+  }
+  
+  .tree-icon-bounce {
+    animation: subtle-bounce 0.6s ease-in-out;
+  }
+  
+  @keyframes subtle-bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+  
+  .tree-folder-line {
+    position: relative;
+  }
+  
+  .tree-folder-line::after {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, hsl(var(--border)), transparent);
+  }
+}
