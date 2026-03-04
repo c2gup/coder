@@ -1,6 +1,6 @@
-import Image from "next/image";
 import React from "react";
 import { useState, useEffect } from "react";
+import Logo from "@/components/ui/logo";
 
 const ShimmerMessages = () => {
   const messages = [
@@ -40,13 +40,7 @@ const MessageLoading = () => {
         className="flex items-center gap-2 pl-2 mb-2
         "
       >
-        <Image
-          src={"/logo.svg"}
-          alt="Vibe"
-          width={28}
-          height={28}
-          className="shrink-0 invert dark:invert-0"
-        />
+        {/* <Logo size="sm" className="shrink-0" /> */}
       </div>
 
       <div className="pl-8.5 flex flex-col gap-y-4">

@@ -41,13 +41,13 @@ const ProjectHeader = ({ projectId }) => {
               "focus-visible:ring-0 hover:bg-transparent hover:opacity-75 transition-opacity !pl-2"
             }
           >
-            <Image
+            {/* <Image
               src={"/logo.svg"}
               alt="Vibe"
               width={28}
               height={28}
               className="shrink-0 invert dark:invert-0"
-            />
+            /> */}
             <span className="text-sm font-medium">
               {isPending ? <Spinner /> : project?.name || "Untitled Project"}
             </span>
