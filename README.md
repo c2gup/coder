@@ -8,15 +8,15 @@ Coder is a modern frontend generator built specifically for Next.js applications
 
 _Application interface - Main dashboard_
 
-<img src="/docs/screenshots/Screenshot 2026-03-04 at 11.46.32 PM.png" alt="Code generation and project management" width="600"/>
+<img src="/docs/screenshots/Screenshot 2026-03-04 at 11.46.32 PM.png" alt="Code generation and project management" width="600"/>
 
 _Code generation and project management_
 
-<img src="/docs/screenshots/Screenshot 2026-03-04 at 11.47.05 PM.png" alt="AI-powered development workflow" width="600"/>
+<img src="/docs/screenshots/Screenshot 2026-03-04 at 11.47.05 PM.png" alt="AI-powered development workflow" width="600"/>
 
 _AI-powered development workflow_
 
-<img src="/docs/screenshots/Screenshot 2026-03-04 at 11.47.33 PM.png" alt="User interface and features overview" width="600"/>
+<img src="/docs/screenshots/Screenshot 2026-03-04 at 11.47.33 PM.png" alt="User interface and features overview" width="600"/>
 
 _User interface and features overview_
 
